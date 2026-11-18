@@ -1,0 +1,16 @@
+# scripts/gdb-attach.cmds
+# Wird von scripts/attach-gdb.sh nach dem Attach ausgefuehrt.
+
+set pagination off
+set confirm off
+set print pretty on
+
+# Breakpoint direkt im verdächtigen Code (Funktion reicht als Angabe).
+break digit_sum
+
+# Bedingter Breakpoint: nur fuer grosse Werte zuschlagen.
+# break digit_sum if value > 99999999
+
+info inferiors
+info breakpoints
+echo \nJetzt: continue  (im anderen Terminal: touch /tmp/worker_gate_go)\n
